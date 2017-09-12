@@ -1,0 +1,59 @@
+\begin{UseCase}{CU2}{Desbloquear Usuario}{Cuando al actor, después de que se le haya solicitado por el usuario que se restablezca su cuenta en el sistema, le mostrará la información de la cuenta asociada al usuario.}
+	\UCsection{Atributos}
+	\UCitem{Actor(es):}{\begin{Titemize}
+		\Titem Administrador
+		\Titem Operador
+	\end{Titemize}}
+	\UCitem{Propósito:}{Proporcionar un mecanismo para restablecer la cuenta de un usuario que haya sido bloqueado por motivos que vayan en contra de las políticas de la empresa.}
+	\UCitem{Precondiciones:}{\begin{Titemize}
+	\Titem \textbf{Sistematizada:} El usuario debe existir en el sistema.
+	\Titem \textbf{Sistematizada:} El usuario deberá estar en estado de bloqueado.
+	\Titem \textbf{Manual:}El usuario deberá haber entregado el formato de solicitud para la re activación de su cuenta.
+	\end{Titemize}}
+	\UCitem{Postcondiciones:}{El usuario podrá iniciar sesión y realizar las actividades dentro del sistema que se adecuen a su perfil.}
+	\UCitem{Entradas:}{Estado del usuario. Se selecciona de una lista desplegable.}
+	\UCitem{Salidas:}{\begin{Titemize}
+		\Titem Correo electrónico del usuario.
+		\Titem Teléfono de contacto del usuario.
+		\Titem Dirección de domicilio del usuario.
+		\Titem Estado actual del usuario.
+		\Titem Rol del usuario en el sistema.
+		\Titem Fecha de último acceso.
+		\Titem Acciones realizadas en el sistema en el último mes.
+		\Titem Fotografía del usuario.
+	\end{Titemize}}
+	\UCitem{Destino:}{Se muestra en una pantalla.}
+	\UCitem{Errores}{\begin{Titemize}
+		\Titem \textbf{Error Uno:} Cuando el sistema no tiene información en un catálogo mostrará el mensaje \textbf{MSG1-Error al encontrar elementos}.
+	\end{Titemize}}
+	\UCitem{Reglas de Negocio:}{BR-N002 La información personal de un usuario en estado de bloqueo o suspensión no podrá ser modificada.}
+	\UCitem{Viene de:}{\hyperlink{CU1}{CU1 Consultar Perfil de Usuario}}
+\end{UseCase}
+
+\subsection{Trayectorias}
+
+\subsubsection{Trayectoria Principal}
+
+	\begin{enumerate}
+		\item El actor indica que desea desbloquear el perfil de un usuario seleccionándolo de la pantalla de inicio.
+		\item El sistema verifica que exista información en el \textbf{Catálogo de Estados}. \textbf{Error Uno}
+		\item El sistema verifica que exista información en el \textbf{Catálogo de Roles}. \textbf{Error Uno}
+		\item El sistema busca la información personal del usuario seleccionado.
+		\item El sistema busca la información de actividades realizadas por el usuario el último mes.
+		\item El sistema muestra una pantalla con la información que encontró y guardó.
+		\item El sistema solicita al actor seleccionar uno de los estados disponibles que la cuenta de usuario puede adquirir.
+		\item El actor selecciona uno de los estados disponibles.
+		\item El actor presiona el botón Guardar.
+		\item El sistema solicita al actor su confirmación mediante el mensaje \textbf{MSG3-Desbloquear Usuario} 
+		
+		\item El actor presiona el botón Aceptar.
+		
+		\item El sistema genera una contraseña provisional.
+		
+		\item El sistema le asigna la contraseña provisional a la cuenta del usuario.
+		
+		\item El sistema envía al correo del usuario la contraseña que le fue re asignada.
+	
+	\end{enumerate}
+	
+------	Fin del caso de uso-----

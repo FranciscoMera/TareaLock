@@ -1,0 +1,71 @@
+\begin{UseCase}{CU1}{Consultar Perfil de Usuario}{Cuando el actor requiere ver la información de un usuario específico del sistema, se le mostrará una pantalla que contendrá la información personal del usuario así comoo elementos que le permitirán el bloqueo o suspensión de la cuenta del usuario.}
+	\UCsection{Atributos}
+	\UCitem{Actor(es):}{\begin{Titemize}
+		\Titem Administrador
+		\Titem Operador
+	\end{Titemize}}
+	\UCitem{Propósito:}{Proporcionar un mecanismo para determinar si las actividades y/o fechas de acceso de un usuario conllevan a bloquear o suspender su cuenta así como permitir la modificación de datos personales como correo electrónico, teléfono, dirección, rol y foto.}
+	\UCitem{Precondiciones:}{\textbf{Sistematizada} El usuario debe existir en el sistema.}
+	\UCitem{Postcondiciones:}{Se muestra una pantalla con la información del usuario.}
+	\UCitem{Entradas:}{\begin{Titemize}
+		\Titem Correo electrónico del usuario. Se ingresa por teclado.
+		\Titem Teléfono de contacto del usuario. Se ingresa por teclado.
+		\Titem Dirección de domicilio. Se ingresa por teclado.
+		\Titem Estado del usuario. Se selecciona de una lista desplegable.
+		\Titem Rol del usuario en el sistema. Se selecciona de una lista desplegable.
+		\Titem Fotografía. Se selecciona de la computadora del usuario.
+	\end{Titemize}}
+	\UCitem{Salidas:}{\begin{Titemize}
+		\Titem Correo electrónico del usuario.
+		\Titem Teléfono de contacto del usuario.
+		\Titem Dirección de domicilio del usuario.
+		\Titem Estado del usuario.
+		\Titem Rol del usuario en el sistema.
+		\Titem Fecha de último acceso.
+		\Titem Acciones realizadas en el sistema en el último mes.
+		\Titem Fotografía.
+	\end{Titemize}}
+	\UCitem{Destino:}{Se muestra en una pantalla.}
+	\UCitem{Errores}{\begin{Titemize}
+		\Titem \textbf{Error Uno:} Cuando el sistema no tiene información en un catálogo mostrará el mensaje \textbf{MSG1-Error al encontrar elementos}.
+	\end{Titemize}}
+	\UCitem{Reglas de Negocio:}{\begin{Titemize}
+		\Titem BR-N001 Un usuario que ha tenido actividad durante los últimos 7 días hábiles no podrá cambiar su estado. 
+		\Titem BR-N002 La información personal de un usuario en estado de bloqueo o suspensión no podrá ser modificada.
+	\end{Titemize}}
+	\UCitem{Viene de:}{Login}
+\end{UseCase}
+
+\subsection{Trayectorias}
+
+\subsubsection{Trayectoria Principal}
+
+	\begin{enumerate}
+		\item El actor indica que desea consultar el perfil de un usuario seleccionándolo de la pantalla de inicio.
+		\item El sistema verifica que exista información en el \textbf{Catálogo de Estados}. \textbf{Error Uno}
+		\item El sistema verifica que exista información en el \textbf{Catálogo de Roles}. \textbf{Error Uno}
+		\item El sistema busca la información personal del usuario seleccionado.
+		\item El sistema busca la información de actividades realizadas por el usuario el último mes.
+		\item El sistema muestra una pantalla con la información que encontró y guardó. \label{CU1:PasoRetorno}\textbf{Trayectoria Alternativa A} \textbf{Trayectoria Alternativa B}
+	\end{enumerate}
+	
+------	Fin del caso de uso-----
+
+\subsubsection{Trayectoria Alternativa A}
+Cuando el usuario  ha tenido actividad en los últimos días.
+	\begin{enumerate}
+		\item El sistema inhabilitará la lista desplegable de estados de la pantalla con base en la regla de negocios \textbf{BR-N001}.
+		\item Regresa al paso \ref{CU1:PasoRetorno} de la trayectoria principal.
+	\end{enumerate}
+	
+\subsubsection{Trayectoria Alternativa B}
+Cuando el usuario tiene estado de bloqueado.
+	\begin{enumerate}
+		\item El sistema inhabilitará la edición de la información personal del usuario con base en la regla de negocios \textbf{BR-N002}.
+		\item El sistema habilitará la lista desplegable de estados del usuario.
+		\item Regresa al paso \ref{CU1:PasoRetorno} de la trayectoria principal.
+	\end{enumerate}
+
+\subsection{Puntos de Extensión}
+
+Cuando el actor requiere cambiar el estado de un usuario. \hyperlink{CU2}{CU2 Desbloquear Usuario}

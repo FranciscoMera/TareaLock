@@ -1,0 +1,22 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{riesgos}[2017/06/24 Paquete para la incorporación de entornos de trabajo para el análisis de riesgos]
+
+\RequirePackage{requerimientos}
+
+%-----------------------------------
+%Entorno para la descripción de riesgos en el proyecto
+%-----------------------------------
+\newenvironment{Riesgo}[2]{
+	\section{#1 #2}
+    \noindent\includegraphics[width=\textwidth]{Plantilla/iconos/RiesgoRule}
+    \hypertarget{#1}{}
+    \begin{description}
+    	\item[Id:] #1
+        \item[Nombre:] #2
+}{
+	\end{description}
+}
+%-----------------------------------
+%Comando para referenciar a un riesgo
+%-----------------------------------
+\newcommand{\refRisk}[1]{\hyperlink{#1}{#1}}

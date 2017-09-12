@@ -1,0 +1,47 @@
+\documentclass[11pt]{book}
+
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{negocio}
+
+\title{Práctica 2}
+\author{Coffee Software} 
+\subtitle{Documento de Análisis y Diseño}
+\date{}
+
+\begin{document}
+
+\ThisLRCornerWallPaper{1}{Plantilla/imgFooters/footPortada}
+\maketitle
+\LRCornerWallPaper{1}{Plantilla/imgFooters/foot}
+\tableofcontents
+
+\part{Modelo Estático}
+
+\chapter{Glosario de Términos}
+\label{ch:Glosario}
+\input{negocio/Glosario}
+
+\chapter{Modelo de Información}
+\label{ch:ModeloInformacion}
+\input{negocio/Modelo}
+
+\chapter{Reglas de Negocio}
+\label{ch:Negocio}
+\input{negocio/RN}
+
+\part{Modelo Dinámico}
+
+\chapter{Casos de Uso}
+\label{ch:CasosDeUso}
+\input{cap/CU1/cu}
+
+\chapter{Interacción con el usuario}
+\label{ch:Interaccion}
+\input{cap/CU1/iu}
+
+\appendix
+\chapter{Mensajes}
+\label{ch:Mensajes}
+
+\end{document}

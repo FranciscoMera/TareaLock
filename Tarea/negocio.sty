@@ -1,0 +1,21 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{negocio}[2017/06/24 Paquete para la implementación de cosas relacionadas al negocio]
+
+\RequirePackage{casosDeUso}
+
+
+\newenvironment{Terminos}{
+	\begin{description}
+}{
+	\end{description}
+}
+
+\newcommand{\bTerm}[3]{
+	\item[\hypertarget{#1}{#2}] #3
+}
+
+\newenvironment{ReglaNegocio}[3]{
+	\noindent\rule{\textwidth}{2pt} \hspace{1mm}
+	\section{#1 #2}
+	\hypertarget{#1}{}
+}{\hrule}

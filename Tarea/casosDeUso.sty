@@ -1,0 +1,32 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{casosDeUso}[2017/06/24 Paquete para la implementación de casos de uso en el documento de análisis]
+
+\RequirePackage{requerimientos}
+
+\newenvironment{UseCase}[3]{
+	\section{#1 #2}
+	\hypertarget{#1}{}
+    	\subsection{Resumen}
+       	#3
+        %Tabla
+        \subsection{#1 #2}
+        \begin{longtable}{| p{0.19\textwidth}| p{0.7\textwidth}|}
+        	\hline
+			\rowcolor{sectionColor}
+			\multicolumn{2}{|c|}{\bf \color{white}{#1 #2}}\\
+			\hline
+			\endhead
+}{\end{longtable}}
+
+\newcommand{\UCsection}[1]{
+	\rowcolor{sectionColor}%
+	\multicolumn{2}{|c|}{\bf \color{white}{#1}}%
+	\\\hline}
+\newcommand{\UCitem}[2]{\bf #1 & #2 \\\hline}
+
+\newenvironment{UCtrayectoria}{
+	\subsection{Trayectoria Principal}
+	\begin{enumerate}
+}{\end{enumerate}}
+
+

@@ -1,0 +1,58 @@
+\begin{UseCase}{INV-CU1}{Nombre del caso de uso}{Resumen del caso de uso}
+	\UCsection{Atributos}
+	\UCitem{Actor(es):}{Si solo es un actor cambiar por Actor el atributo, si son más de uno usar Titemize}
+	\UCitem{Propósito:}{Indica la razón de ser del caso de uso.}
+	\UCitem{Precondiciones:}{\textbf{Sistematizada} si debe existir en el sistema, \textbf{Manual} si se requiere intervención externa En viñetas}
+	\UCitem{Postcondiciones:}{Cual es el efecto inmediato después de que concluye el caso de uso}
+	\UCitem{Entradas:}{Ejemplo: Nombre del empleado se ingresa desde teclado. Hacer referencia al modelo de información O al entidad relación}
+	\UCitem{Salidas:}{Qué salidas proporciona por ejemplo un mensaje}
+	\UCitem{Destino:}{Indica a donde debe llegar o mostrarse la salida, ejemplo Correo, Pantalla}
+	\UCitem{Reglas de Negocio:}{Indica que reglas de negocio se aplican para este caso de uso}
+	\UCitem{Viene de:}{Indica si el caso de uso es primario (cuando se parte de ese caso de uso para generar otros)}
+   	\UCitem{Efectos Colaterales:}{Indica como afecta la operación realizada por el caso de uso a otros sistemas o a otros}
+\end{UseCase}
+
+\subsection{Trayectorias}
+
+\subsection{Puntos de Extensión}
+
+
+\begin{UseCase}{INV-CU1.1}{Registrar nuevo almacén}{Resumen del caso de uso}
+	\UCsection{Responsable de inventario}
+	\UCitem{Actor(es):}{Responsable de inventario}
+	\UCitem{Propósito:}{Si el dueño va a abrir una nueva papelería,necesita de un almacén propio, el cual tiene un responsable de inventario que se encarga de administrarlo.}
+	\UCitem{Precondiciones:}{\textbf{Sistematizada} si debe existir en el sistema, \textbf{Manual} si se requiere intervención externa En viñetas}
+	\UCitem{Postcondiciones:}{Una vez registrado el nuevo almacén,el responsable de inventario podrá empezar la gestión de este, editarlo,eliminarlo y consultarlo.}
+	\UCitem{Entradas:}{Ejemplo: Nombre del empleado se ingresa desde teclado. Hacer referencia al modelo de información O al entidad relación}
+	\UCitem{Salidas:}{Ya registrado el nuevo almacén, aparece un mensaje con lo siguiente: "Almacén registrado de manera exitosa"}
+	\UCitem{Destino:}{En la sección de almacenes,en la parte inferior de la lista, aparece el nuevo almacén registrado.}
+	\UCitem{Reglas de Negocio:}{Indica que reglas de negocio se aplican para este caso de uso}
+	\UCitem{Viene de:}{Indica si el caso de uso es primario (cuando se parte de ese caso de uso para generar otros)}
+   	\UCitem{Efectos Colaterales:}{Indica como afecta la operación realizada por el caso de uso a otros sistemas o a otros}
+\end{UseCase}
+
+\subsection{Trayectorias}
+
+\subsection{Puntos de Extensión}
+
+
+
+
+
+\begin{UseCase}{INV-CU1.1.1}{Definir responsable de almacén}{Resumen del caso de uso}
+	\UCsection{Responsable de inventario}
+	\UCitem{Actor(es):}{Responsable de inventario}
+	\UCitem{Propósito:}{Cada almacén tiene su responsable, el cual físicamente está presente en el almacén.}
+	\UCitem{Precondiciones:}{\textbf{Sistematizada} si debe existir en el sistema, \textbf{Manual} si se requiere intervención externa En viñetas}
+	\UCitem{Postcondiciones:}{Se le asigna  un responsable a un almacén en específico}
+	\UCitem{Entradas:}{Ejemplo: Nombre del empleado se ingresa desde teclado. Hacer referencia al modelo de información O al entidad relación}
+	\UCitem{Salidas:}{Se muestra en pantalla el mensaje="Responsable de almacén asignado con éxito"}
+	\UCitem{Destino:}{En la sección de almacenes,una columna está destinada a los responsables de almacén, aparece el nombre del responsable para cada almacén. .}
+	\UCitem{Reglas de Negocio:}{Indica que reglas de negocio se aplican para este caso de uso}
+	\UCitem{Viene de:}{CU1.1:Registrar nuevo almacén.}
+   	\UCitem{Efectos Colaterales:}{Indica como afecta la operación realizada por el caso de uso a otros sistemas o a otros}
+\end{UseCase}
+
+\subsection{Trayectorias}
+
+\subsection{Puntos de Extensión}
